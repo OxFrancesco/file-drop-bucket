@@ -169,7 +169,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
         self.monitor = monitor
 
         view.onDropURLs = { [weak self] urls in
-            self?.perform { try store.add(urls.map(\.path)) }
+            // Mutating the table inside performDragOperation can trap in
+            // endUpdates — defer the add to the next runloop turn.
+            DispatchQueue.main.async {
+                self?.perform { try store.add(urls.map(\.path)) }
+            }
         }
         view.onDragHover = { [weak self] hovering in
             self?.dock?.dragHovering = hovering
@@ -236,6 +240,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
 
     func refresh() {
         guard let view = bucketView else { return }
+        // Never touch rows mid-drag-session; the end callback reapplies.
+        guard outPaths.isEmpty else { refreshPending = true; return }
         do {
             let next = try store.access()
             if next != paths { applyRows(next, to: view.table) }
@@ -301,6 +307,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
     func numberOfRows(in tableView: NSTableView) -> Int { paths.count }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard paths.indices.contains(row) else { return nil }
         let path = paths[row]; let url = URL(fileURLWithPath: path)
         let cell = NSTableCellView()
         let icon = NSImageView(); icon.image = NSWorkspace.shared.icon(forFile: path)
@@ -328,6 +335,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
 
     /// Paths captured at drag start so a mid-drag list change can't shift indices.
     private var outPaths: Set<String> = []
+    /// Set when a refresh arrives while a row drag session is live.
+    private var refreshPending = false
 
     func tableView(_ tableView: NSTableView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forRowIndexes rowIndexes: IndexSet) {
         outPaths = Set(rowIndexes.compactMap { paths.indices.contains($0) ? paths[$0] : nil })
@@ -338,9 +347,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
     func tableView(_ tableView: NSTableView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
         let leaving = outPaths
         outPaths = []
+        if refreshPending {
+            refreshPending = false
+            DispatchQueue.main.async { self.refresh() }
+        }
         guard operation != [], !leaving.isEmpty else { return }
         if let panel, panel.frame.contains(screenPoint) { return }
-        perform { _ = try store.access { $0.removeAll { leaving.contains($0) } } }
+        // Same rule as drops: mutate the store after the session callback ends.
+        DispatchQueue.main.async {
+            self.perform { _ = try store.access { $0.removeAll { leaving.contains($0) } } }
+        }
     }
 }
 
