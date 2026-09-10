@@ -2,7 +2,7 @@ import AppKit
 import QuartzCore
 
 final class BucketPanel: NSPanel {
-    override var canBecomeKey: Bool { false }
+    override var canBecomeKey: Bool { true }
     override var canBecomeMain: Bool { false }
 
     convenience init() {
@@ -21,6 +21,26 @@ final class BucketPanel: NSPanel {
         hasShadow = true
         isReleasedWhenClosed = false
         isMovableByWindowBackground = false
+        becomesKeyOnlyIfNeeded = true
+    }
+}
+
+/// Table that removes its selected rows on Delete / Shift+Delete.
+final class BucketTableView: NSTableView {
+    var onRemoveSelection: () -> Void = {}
+
+    override func mouseDown(with event: NSEvent) {
+        // Nonactivating panel: make it key on click so Delete reaches keyDown.
+        window?.makeKey()
+        super.mouseDown(with: event)
+    }
+
+    override func keyDown(with event: NSEvent) {
+        if event.keyCode == 51 || event.keyCode == 117 {
+            onRemoveSelection()
+        } else {
+            super.keyDown(with: event)
+        }
     }
 }
 
@@ -94,6 +114,22 @@ private final class DropOverlay: NSView {
         label.stringValue = count > 0 ? "Release to keep \(count) file\(count == 1 ? "" : "s")" : "Release to keep"
         isHidden = false
     }
+
+    /// Files landed: a quick grow-and-fade "catch" pop.
+    func landed() {
+        let reduced = NSWorkspace.shared.accessibilityDisplayShouldReduceMotion
+        let home = superview?.bounds.insetBy(dx: 6, dy: 6) ?? frame
+        NSAnimationContext.runAnimationGroup { ctx in
+            ctx.duration = reduced ? 0.15 : 0.3
+            ctx.timingFunction = CAMediaTimingFunction(controlPoints: 0.2, 0.9, 0.3, 1)
+            if !reduced { animator().frame = home.insetBy(dx: -4, dy: -4) }
+            animator().alphaValue = 0
+        } completionHandler: { [weak self] in
+            self?.isHidden = true
+            self?.alphaValue = 1
+            self?.frame = home
+        }
+    }
 }
 
 /// The panel content: vibrancy surface, header, file table, drop overlay.
@@ -104,16 +140,14 @@ final class BucketView: NSVisualEffectView {
     var onDropURLs: ([URL]) -> Void = { _ in }
     var onDragHover: (Bool) -> Void = { _ in }
     var onPin: () -> Void = {}
-    var onClose: () -> Void = {}
 
-    let table = NSTableView()
+    let table = BucketTableView()
     private let scroll = NSScrollView()
     private let overlay = DropOverlay()
     private let emptyState = EmptyStateView()
     private let status = NSTextField(labelWithString: "")
     private let countField = NSTextField(labelWithString: "")
     private let pinButton = NSButton()
-    private let closeButton = NSButton()
     private var pinned = false
     private var hovering = false
 
@@ -147,10 +181,9 @@ final class BucketView: NSVisualEffectView {
         countField.font = .systemFont(ofSize: 10)
         countField.textColor = .secondaryLabelColor
         countField.alignment = .right
-        countField.frame = NSRect(x: w - 138, y: h - 32, width: 76, height: 18)
+        countField.frame = NSRect(x: w - 116, y: h - 32, width: 76, height: 18)
 
-        configure(button: pinButton, symbol: "pin", frame: NSRect(x: w - 58, y: h - 35, width: 24, height: 24), action: #selector(pinClicked))
-        configure(button: closeButton, symbol: "xmark", frame: NSRect(x: w - 32, y: h - 35, width: 24, height: 24), action: #selector(closeClicked))
+        configure(button: pinButton, symbol: "pin", frame: NSRect(x: w - 32, y: h - 35, width: 24, height: 24), action: #selector(pinClicked))
 
         let hairline = NSBox(frame: NSRect(x: 10, y: h - 46, width: w - 20, height: 1))
         hairline.boxType = .separator
@@ -186,7 +219,7 @@ final class BucketView: NSVisualEffectView {
 
         overlay.frame = bounds.insetBy(dx: 6, dy: 6)
 
-        for v in [icon, title, countField, pinButton, closeButton, hairline, scroll, emptyState, status, overlay] {
+        for v in [icon, title, countField, pinButton, hairline, scroll, emptyState, status, overlay] {
             addSubview(v)
         }
     }
@@ -204,7 +237,6 @@ final class BucketView: NSVisualEffectView {
     }
 
     @objc private func pinClicked() { onPin() }
-    @objc private func closeClicked() { onClose() }
 
     func setPinned(_ value: Bool) {
         pinned = value
@@ -248,6 +280,7 @@ final class BucketView: NSVisualEffectView {
             options: [.urlReadingFileURLsOnly: true]
         ) as? [URL], !urls.isEmpty else { return false }
         onDropURLs(urls)
+        overlay.landed()
         return true
     }
 

@@ -163,13 +163,6 @@ final class DockController {
         }
     }
 
-    /// User explicitly closed the bucket: drop the pin and hide it.
-    func userClose() {
-        pinned = false
-        autoRevealed = false
-        conceal()
-    }
-
     /// Called when the hold timer fires mid-drag.
     func dragHoldTriggered() {
         reveal(auto: true)

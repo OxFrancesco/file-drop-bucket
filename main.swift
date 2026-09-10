@@ -176,7 +176,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
             if hovering { self?.dock?.noteDragEnter() }
         }
         view.onPin = { [weak self] in self?.mutateSettings { $0.keepOpen.toggle() } }
-        view.onClose = { [weak self] in self?.closeBucket() }
+        view.table.onRemoveSelection = { [weak self] in self?.menuRemove() }
 
         let statusBar = StatusItemController()
         statusBar.settingsProvider = { [weak self] in self?.settings ?? BucketSettings() }
@@ -205,11 +205,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
     private func showBucket() {
         mutateSettings { $0.keepOpen = true }
         dock?.reveal(pinned: true)
-    }
-
-    private func closeBucket() {
-        mutateSettings { $0.keepOpen = false }
-        dock?.userClose()
     }
 
     private func mutateSettings(_ mutation: (inout BucketSettings) -> Void) {
@@ -243,7 +238,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
         guard let view = bucketView else { return }
         do {
             let next = try store.access()
-            if next != paths { paths = next; view.table.reloadData() }
+            if next != paths { applyRows(next, to: view.table) }
             view.update(
                 count: paths.count,
                 statusText: paths.isEmpty ? "Drop files in · drag rows out" : "Copy-only drags · originals stay put"
@@ -251,6 +246,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
         } catch {
             view.update(count: paths.count, statusText: error.localizedDescription)
         }
+    }
+
+    /// Diff the row model so drops slide in and drag-outs slide away.
+    private func applyRows(_ next: [String], to table: NSTableView) {
+        let old = paths
+        let removed = IndexSet(old.indices.filter { !next.contains(old[$0]) })
+        let survivors = Set(old.filter(next.contains))
+        let inserted = IndexSet(next.indices.filter { !survivors.contains(next[$0]) })
+        paths = next
+        guard !removed.isEmpty || !inserted.isEmpty else {
+            table.reloadData()
+            return
+        }
+        table.beginUpdates()
+        table.removeRows(at: removed, withAnimation: [.effectFade, .slideDown])
+        table.insertRows(at: inserted, withAnimation: [.effectFade, .slideUp])
+        table.endUpdates()
     }
 
     func perform(_ work: () throws -> Void) {
@@ -312,6 +324,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
         }
         guard paths.indices.contains(row), let path = try? store.canonical(paths[row]) else { return nil }
         return NSURL(fileURLWithPath: path)
+    }
+
+    /// Paths captured at drag start so a mid-drag list change can't shift indices.
+    private var outPaths: Set<String> = []
+
+    func tableView(_ tableView: NSTableView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forRowIndexes rowIndexes: IndexSet) {
+        outPaths = Set(rowIndexes.compactMap { paths.indices.contains($0) ? paths[$0] : nil })
+    }
+
+    /// A completed drop outside the panel takes the files off the shelf.
+    /// Cancelled drags, and drops back onto the bucket itself, keep them.
+    func tableView(_ tableView: NSTableView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
+        let leaving = outPaths
+        outPaths = []
+        guard operation != [], !leaving.isEmpty else { return }
+        if let panel, panel.frame.contains(screenPoint) { return }
+        perform { _ = try store.access { $0.removeAll { leaving.contains($0) } } }
     }
 }
 

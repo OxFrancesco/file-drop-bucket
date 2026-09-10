@@ -12,7 +12,9 @@ cd file-drop-bucket
 open "build/File Bucket.app"
 ```
 
-The app runs as a menu-bar utility (no Dock icon). On launch the panel opens once so you know it is running, then disappears entirely — nothing is left on the edge. Hover the docked screen edge (a band roughly the panel's height, centered vertically) to slide it out; move away to slide it back. The pin keeps it open; the close button hides it again.
+The app runs as a menu-bar utility (no Dock icon). On launch the panel opens once so you know it is running, then disappears entirely — nothing is left on the edge. Hover the docked screen edge (a band roughly the panel's height, centered vertically) to slide it out; move away to slide it back. The pin keeps it open; unpin it and step away to let it hide.
+
+Click a row, then press Delete (or Shift+Delete) to take it off the shelf. Dragging a row out to another app drops the file there and removes it from the bucket; cancelling the drag, or dropping it back on the panel, keeps it. Rows slide in and out on every change.
 
 ## Menu bar
 
@@ -39,8 +41,8 @@ The tray icon menu controls everything: dock at left or right edge, float freely
 
 - **Hold detection**: a 30 Hz timer watches `NSEvent.pressedMouseButtons` and `NSEvent.mouseLocation` — no accessibility or input-monitoring permission needed. When the button stays held while the cursor has moved past 12 pt for `holdDelay` seconds, the panel reveals. With `onlyfiles` on, the drag pasteboard's `changeCount` is compared between press and hold time so stale pasteboards cannot suppress it; a live non-file drag (text selection, tab drag) is ignored.
 - **Edge dock**: concealed means the panel is ordered out — zero pixels on screen. A 50 ms poll of the cursor position watches an edge band on the docked display and slides the panel in on hover, out when you leave, unless pinned or mid-drag. The docked display is tracked explicitly so parking off-screen never bleeds onto a neighbouring monitor.
-- **Drops**: the whole panel is an `NSDraggingDestination` for `public.file-url`; hovering the edge mid-drag slides it out under the session. A highlight overlay confirms before release.
-- **Drags out**: rows are real `NSURL` pasteboard sources; select multiple rows with Command/Shift.
+- **Drops**: the whole panel is an `NSDraggingDestination` for `public.file-url`; hovering the edge mid-drag slides it out under the session. A highlight overlay confirms, then pops and fades on release while the new rows slide up into the list.
+- **Drags out**: rows are real `NSURL` pasteboard sources; select multiple rows with Command/Shift. A completed drop outside the panel removes those paths from the store and animates the rows away. Clicking the table makes the non-activating panel key, so Delete/Shift+Delete and arrow keys work.
 - **Motion**: a critically damped spring drives the slide; it re-targets mid-flight, so hover/drag transitions never pop. Reduce Motion swaps slides for fades.
 - **Persistence**: `~/Library/Application Support/FileDropBucket/manifest.json` (canonical paths, advisory lock, atomic writes, 0700/0600 permissions) plus `settings.json` shared with the CLI. `BUCKET_HOME` overrides the directory for testing.
 
