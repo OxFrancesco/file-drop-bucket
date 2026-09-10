@@ -1,0 +1,12 @@
+#!/bin/bash
+# Explicit opt-in launcher for this patched backend only. Click/scroll stay unchanged.
+set -euo pipefail
+app="${OCU_NATIVE_DRAG_APP:-$HOME/Applications/Open Computer Use (Dev).app}"
+exe="$app/Contents/MacOS/OpenComputerUse"
+if [[ ! -x "$exe" ]]; then
+  printf 'Patched OCU app missing: %s\n' "$app" >&2
+  exit 1
+fi
+export OPEN_COMPUTER_USE_ALLOW_NATIVE_DRAG=1
+export OPEN_COMPUTER_USE_AGENT_SOCKET_NAMESPACE=file-bucket-native-drag-fix
+exec "$exe" "$@"

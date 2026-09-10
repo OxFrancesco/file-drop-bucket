@@ -1,0 +1,81 @@
+diff --git a/packages/OpenComputerUseKit/Sources/OpenComputerUseKit/ComputerUseService.swift b/packages/OpenComputerUseKit/Sources/OpenComputerUseKit/ComputerUseService.swift
+index afdce9b..6b6b764 100644
+--- a/packages/OpenComputerUseKit/Sources/OpenComputerUseKit/ComputerUseService.swift
++++ b/packages/OpenComputerUseKit/Sources/OpenComputerUseKit/ComputerUseService.swift
+@@ -174,6 +174,20 @@ func inputFallbackDebugEnabled(environment: [String: String]) -> Bool {
+     return ["1", "true", "yes", "on"].contains(rawValue)
+ }
+ 
++// Native AppKit dragging requires WindowServer routing. PID-posted events can
++// return successfully without a window or an NSDraggingSession. Do not silently
++// substitute that path when permission to move the real pointer is absent.
++func requireNativeDragPermission(environment: [String: String]) throws {
++    let dragConsent = environment["OPEN_COMPUTER_USE_ALLOW_NATIVE_DRAG"]?
++        .trimmingCharacters(in: .whitespacesAndNewlines).lowercased() ?? ""
++    guard ["1", "true", "yes", "on"].contains(dragConsent)
++        || globalPointerFallbacksEnabled(environment: environment) else {
++        throw ComputerUseError.message(
++            "Native drag requires OPEN_COMPUTER_USE_ALLOW_NATIVE_DRAG=1. It moves the real pointer and may change focus. Inspect source and destination first. Accessibility permission is still required. No drag events were sent."
++        )
++    }
++}
++
+ func globalPointerFallbacksEnabled(environment: [String: String]) -> Bool {
+     guard let rawValue = environment["OPEN_COMPUTER_USE_ALLOW_GLOBAL_POINTER_FALLBACKS"]?
+         .trimmingCharacters(in: .whitespacesAndNewlines)
+@@ -1778,18 +1792,14 @@ public final class ComputerUseService {
+         let eventStart = inputEventPoint(fromScreenStatePoint: start)
+         let eventEnd = inputEventPoint(fromScreenStatePoint: end)
+ 
+-        if globalPointerFallbacksEnabled(environment: ProcessInfo.processInfo.environment) {
+-            debugInputFallback(
+-                tool: "drag",
+-                targetDescription: targetDescription,
+-                snapshot: snapshot
+-            )
+-            InputSimulation.prepareAppForGlobalPointerInput(snapshot.app)
+-            try InputSimulation.dragGlobally(from: eventStart, to: eventEnd)
+-            return
+-        }
+-
+-        try InputSimulation.dragTargeted(from: eventStart, to: eventEnd, pid: snapshot.app.pid)
++        try requireNativeDragPermission(environment: ProcessInfo.processInfo.environment)
++        debugInputFallback(
++            tool: "drag",
++            targetDescription: targetDescription,
++            snapshot: snapshot
++        )
++        InputSimulation.prepareAppForGlobalPointerInput(snapshot.app)
++        try InputSimulation.dragGlobally(from: eventStart, to: eventEnd)
+     }
+ 
+     private func performNonAXClickFallback(
+diff --git a/packages/OpenComputerUseKit/Tests/OpenComputerUseKitTests/NativeDragPermissionTests.swift b/packages/OpenComputerUseKit/Tests/OpenComputerUseKitTests/NativeDragPermissionTests.swift
+new file mode 100644
+index 0000000..4b07c7a
+--- /dev/null
++++ b/packages/OpenComputerUseKit/Tests/OpenComputerUseKitTests/NativeDragPermissionTests.swift
+@@ -0,0 +1,23 @@
++import XCTest
++@testable import OpenComputerUseKit
++
++final class NativeDragPermissionTests: XCTestCase {
++    func testNativeDragRequiresExplicitPointerConsent() {
++        XCTAssertThrowsError(try requireNativeDragPermission(environment: [:]))
++        for value in ["", "0", "false", "no", "off"] {
++            XCTAssertThrowsError(try requireNativeDragPermission(environment: ["OPEN_COMPUTER_USE_ALLOW_NATIVE_DRAG": value]))
++        }
++    }
++
++    func testDragOnlyConsentDoesNotEnableGlobalClicksOrScrolling() {
++        for value in ["1", "true", " YES ", "on"] {
++            let environment = ["OPEN_COMPUTER_USE_ALLOW_NATIVE_DRAG": value]
++            XCTAssertNoThrow(try requireNativeDragPermission(environment: environment))
++            XCTAssertFalse(globalPointerFallbacksEnabled(environment: environment))
++        }
++    }
++
++    func testExistingGlobalConsentStillAllowsDragging() {
++        XCTAssertNoThrow(try requireNativeDragPermission(environment: ["OPEN_COMPUTER_USE_ALLOW_GLOBAL_POINTER_FALLBACKS": "1"]))
++    }
++}

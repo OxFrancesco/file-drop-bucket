@@ -1,0 +1,384 @@
+[0/1] Planning build
+Building for debugging...
+[0/14] Write sources
+[1/14] Write swift-version--58304C5D6DBC2206.txt
+[3/12] Compiling OpenComputerUseKit ComputerUseService.swift
+[4/12] Emitting module OpenComputerUseKit
+/private/tmp/ocu-drag-source/packages/OpenComputerUseKit/Sources/OpenComputerUseKit/SoftwareCursorGlyphRenderer.swift:59:5: warning: 'nonisolated(unsafe)' is unnecessary for a constant with 'Sendable' type 'NSImage?', consider removing it
+ 57 | 
+ 58 | enum SoftwareCursorGlyphRenderer {
+ 59 |     nonisolated(unsafe) private static let referenceImage = loadReferenceCursorWindowImage()
+    |     `- warning: 'nonisolated(unsafe)' is unnecessary for a constant with 'Sendable' type 'NSImage?', consider removing it
+ 60 | 
+ 61 |     static func draw(
+[5/15] Compiling OpenComputerUseKit ToolDefinitions.swift
+[6/15] Compiling OpenComputerUseKit MCPServer.swift
+[7/15] Compiling OpenComputerUseKit ComputerUseToolDispatcher.swift
+[8/29] Emitting module OpenComputerUseKitTests
+[9/29] Emitting module OpenComputerUse
+[10/29] Emitting module OpenComputerUseSmokeSuite
+[11/29] Compiling OpenComputerUseSmokeSuite main.swift
+[12/29] Compiling OpenComputerUseKitTests SkyClickLiveTests.swift
+[12/29] Write Objects.LinkFileList
+[14/29] Emitting module OpenComputerUseFixture
+[15/29] Compiling OpenComputerUseFixture main.swift
+[15/30] Write Objects.LinkFileList
+[17/30] Compiling OpenComputerUse MCPAppRuntime.swift
+[18/30] Compiling OpenComputerUseKitTests OpenComputerUseKitTests.swift
+[19/30] Compiling OpenComputerUseKitTests NativeDragPermissionTests.swift
+[20/30] Compiling OpenComputerUse MacOSAppAgentProxy.swift
+[21/30] Compiling OpenComputerUse PermissionOnboardingApp.swift
+[22/30] Compiling OpenComputerUse OpenComputerUseMain.swift
+[22/31] Write Objects.LinkFileList
+[23/33] Linking OpenComputerUseFixture
+[24/33] Linking OpenComputerUseSmokeSuite
+[25/33] Linking OpenComputerUse
+[26/33] Applying OpenComputerUseFixture
+[27/33] Applying OpenComputerUseSmokeSuite
+[28/33] Applying OpenComputerUse
+[30/33] Emitting module OpenComputerUsePackageTests
+[31/33] Compiling OpenComputerUsePackageTests runner.swift
+[31/33] Write Objects.LinkFileList
+[32/33] Linking OpenComputerUsePackageTests
+Build complete! (6.26s)
+Test Suite 'All tests' started at 2026-09-10 18:49:55.710.
+Test Suite 'OpenComputerUsePackageTests.xctest' started at 2026-09-10 18:49:55.713.
+Test Suite 'NativeDragPermissionTests' started at 2026-09-10 18:49:55.713.
+Test Case '-[OpenComputerUseKitTests.NativeDragPermissionTests testDragOnlyConsentDoesNotEnableGlobalClicksOrScrolling]' started.
+Test Case '-[OpenComputerUseKitTests.NativeDragPermissionTests testDragOnlyConsentDoesNotEnableGlobalClicksOrScrolling]' passed (0.002 seconds).
+Test Case '-[OpenComputerUseKitTests.NativeDragPermissionTests testExistingGlobalConsentStillAllowsDragging]' started.
+Test Case '-[OpenComputerUseKitTests.NativeDragPermissionTests testExistingGlobalConsentStillAllowsDragging]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.NativeDragPermissionTests testNativeDragRequiresExplicitPointerConsent]' started.
+Test Case '-[OpenComputerUseKitTests.NativeDragPermissionTests testNativeDragRequiresExplicitPointerConsent]' passed (0.001 seconds).
+Test Suite 'NativeDragPermissionTests' passed at 2026-09-10 18:49:55.716.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.003 (0.003) seconds
+Test Suite 'OpenComputerUseKitTests' started at 2026-09-10 18:49:55.716.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityClickMethodRequiresElementIndex]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityClickMethodRequiresElementIndex]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererElidesEmptyGenericElectronWrappers]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererElidesEmptyGenericElectronWrappers]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererFiltersImplicitMenuActions]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererFiltersImplicitMenuActions]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererFiltersScrollToVisibleNoise]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererFiltersScrollToVisibleNoise]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererFormatsPlaceholderSegment]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererFormatsPlaceholderSegment]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererKeepsLinkRoleWhenSuppressingChildren]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererKeepsLinkRoleWhenSuppressingChildren]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererKeepsMarkdownShapeForSummaryLinks]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererKeepsMarkdownShapeForSummaryLinks]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererMarksCompactGenericClickTargetsAsButtons]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererMarksCompactGenericClickTargetsAsButtons]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererOnlyMergesShortTextOnlySiblingRuns]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererOnlyMergesShortTextOnlySiblingRuns]' passed (0.002 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererRecognizesPrimaryClickActions]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererRecognizesPrimaryClickActions]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererRendersSummariesWithImagesAsChildren]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererRendersSummariesWithImagesAsChildren]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererSuppressesDuplicateDescriptionForSameTextMarkdownLinks]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererSuppressesDuplicateDescriptionForSameTextMarkdownLinks]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererTreatsGenericPrimaryActionsAsSummaryBoundaries]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererTreatsGenericPrimaryActionsAsSummaryBoundaries]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererUsesOfficialZoomWindowActionName]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityRendererUsesOfficialZoomWindowActionName]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityTreeBudgetAllowsDeepElectronWebViews]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAccessibilityTreeBudgetAllowsDeepElectronWebViews]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testActivationOnlyClickFallbackKeepsWindowRaisePath]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testActivationOnlyClickFallbackKeepsWindowRaisePath]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testActivationOnlyClickFallbackRejectsPlainStaticText]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testActivationOnlyClickFallbackRejectsPlainStaticText]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAppAgentSocketFileNameIsDeterministicAndNamespaced]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAppAgentSocketFileNameIsDeterministicAndNamespaced]' passed (0.001 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAppAgentSocketFileNamePreservesLegacyDefault]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAppAgentSocketFileNamePreservesLegacyDefault]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAppSafetyPolicyDoesNotBlockNonPasswordApps]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAppSafetyPolicyDoesNotBlockNonPasswordApps]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAppSafetyPolicyKeepsPasswordManagerBlocks]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testAppSafetyPolicyKeepsPasswordManagerBlocks]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testBlockingAsyncBridgeTimesOutScreenshotWork]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testBlockingAsyncBridgeTimesOutScreenshotWork]' passed (0.013 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testBoundedScreenshotPNGDataKeepsSmallScreenshotsAtOriginalSize]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testBoundedScreenshotPNGDataKeepsSmallScreenshotsAtOriginalSize]' passed (0.006 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testBoundedScreenshotPNGDataShrinksLargeScreenshots]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testBoundedScreenshotPNGDataShrinksLargeScreenshots]' passed (0.105 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testClickMethodDefaultsToAutoAndNormalizesExplicitValues]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testClickMethodDefaultsToAutoAndNormalizesExplicitValues]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testClickMethodRejectsUnknownValues]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testClickMethodRejectsUnknownValues]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesCommandSpecificHelp]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesCommandSpecificHelp]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesGlobalHelpAndVersionFlags]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesGlobalHelpAndVersionFlags]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesJSONSequenceCallCommand]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesJSONSequenceCallCommand]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesJSONSequenceCallCommandWithCustomSleep]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesJSONSequenceCallCommandWithCustomSleep]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesSingleToolCallCommand]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesSingleToolCallCommand]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesSnapshotTextLimitFlag]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesSnapshotTextLimitFlag]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesTurnEndedNotifyPayload]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRecognizesTurnEndedNotifyPayload]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsInvalidSequenceSleepValue]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsInvalidSequenceSleepValue]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsInvalidSnapshotTextLimit]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsInvalidSnapshotTextLimit]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsInvalidSnapshotTreeBudget]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsInvalidSnapshotTreeBudget]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsMixedCallSequenceInputs]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsMixedCallSequenceInputs]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsOldSnapshotFullTextFlag]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsOldSnapshotFullTextFlag]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsSleepForSingleToolCall]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsSleepForSingleToolCall]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsUnknownOption]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRejectsUnknownOption]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRequiresSnapshotArgument]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCLIRequiresSnapshotArgument]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testComputerUseErrorsFormatLikeToolText]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testComputerUseErrorsFormatLikeToolText]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingRowActionAcceptsTightClickableAncestor]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingRowActionAcceptsTightClickableAncestor]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingRowActionRejectsBroadWebArea]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingRowActionRejectsBroadWebArea]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingRowActionRequiresPrimaryAction]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingRowActionRequiresPrimaryAction]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingWebRowOptimizationKeepsLarkSyntheticRows]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingWebRowOptimizationKeepsLarkSyntheticRows]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingWebRowOptimizationRejectsChromeSyntheticText]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingWebRowOptimizationRejectsChromeSyntheticText]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingWebRowOptimizationRejectsChromeWebGroups]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingWebRowOptimizationRejectsChromeWebGroups]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingWebRowOptimizationRequiresWebAreaAncestor]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testContainingWebRowOptimizationRequiresWebAreaAncestor]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorMotionPathStartsAndEndsAtExpectedPoints]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorMotionPathStartsAndEndsAtExpectedPoints]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorMotionPathSupportsStraightVariantForConservativeFallback]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorMotionPathSupportsStraightVariantForConservativeFallback]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorPanelDoesNotReorderWhenVisibleAndTargetWindowIsStable]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorPanelDoesNotReorderWhenVisibleAndTargetWindowIsStable]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorPanelReordersWhenForcedEvenIfTargetWindowDidNotChange]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorPanelReordersWhenForcedEvenIfTargetWindowDidNotChange]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorVisualDynamicsKeepsAngleInertiaAfterTargetStops]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorVisualDynamicsKeepsAngleInertiaAfterTargetStops]' passed (0.001 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorVisualDynamicsOvershootsAfterTargetStops]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorVisualDynamicsOvershootsAfterTargetStops]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorVisualDynamicsTracksMovementHeadingInsteadOfOnlyWiggling]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorVisualDynamicsTracksMovementHeadingInsteadOfOnlyWiggling]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorWindowGeometryAnchorsTipPosition]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testCursorWindowGeometryAnchorsTipPosition]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testDefaultVisualCursorInitialTipMatchesZeroWindowOrigin]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testDefaultVisualCursorInitialTipMatchesZeroWindowOrigin]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testDispatcherMissingArgumentsMatchOfficialToolText]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testDispatcherMissingArgumentsMatchOfficialToolText]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testElementIndexAcceptsNumericCallSequenceArgument]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testElementIndexAcceptsNumericCallSequenceArgument]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testElementIndexAcceptsNumericToolArgument]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testElementIndexAcceptsNumericToolArgument]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testElementIndexRejectsMissingEmptyAndFractionalArguments]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testElementIndexRejectsMissingEmptyAndFractionalArguments]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testFixtureStateFocusProbeFieldsRemainBackwardCompatible]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testFixtureStateFocusProbeFieldsRemainBackwardCompatible]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testGeneralHelpListsCommandsAndGlobalFlags]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testGeneralHelpListsCommandsAndGlobalFlags]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testGlobalClickMethodRequiresExplicitPointerAuthorization]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testGlobalClickMethodRequiresExplicitPointerAuthorization]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testGlobalPointerFallbackFlagDefaultsToDisabled]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testGlobalPointerFallbackFlagDefaultsToDisabled]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testHeadingDrivenMotionPrefersNearDirectPathWhenHeadingsAlreadyAlign]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testHeadingDrivenMotionPrefersNearDirectPathWhenHeadingsAlreadyAlign]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testHeadingDrivenMotionPrefersTurnaroundArcWhenStartHeadingOpposesTravel]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testHeadingDrivenMotionPrefersTurnaroundArcWhenStartHeadingOpposesTravel]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testHitRecordDescendantScanKeepsNearbyRowHit]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testHitRecordDescendantScanKeepsNearbyRowHit]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testHitRecordDescendantScanRejectsBroadWebAreaHit]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testHitRecordDescendantScanRejectsBroadWebAreaHit]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testInitializeResponseContainsComputerUseInstructions]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testInitializeResponseContainsComputerUseInstructions]' passed (0.001 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testInitializeResponseContainsToolsCapability]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testInitializeResponseContainsToolsCapability]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testInputEventPointKeepsCoreGraphicsScreenStateCoordinates]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testInputEventPointKeepsCoreGraphicsScreenStateCoordinates]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testInputFallbackDebugFlagDefaultsToDisabled]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testInputFallbackDebugFlagDefaultsToDisabled]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testKeyboardTextFallbackAcceptsEditableTextRole]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testKeyboardTextFallbackAcceptsEditableTextRole]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testKeyboardTextFallbackAcceptsSettableValueElement]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testKeyboardTextFallbackAcceptsSettableValueElement]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testKeyboardTextFallbackRejectsPlainWebArea]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testKeyboardTextFallbackRejectsPlainWebArea]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testKeyPressParserSupportsCommandStyleChord]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testKeyPressParserSupportsCommandStyleChord]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testKeyPressParserSupportsOfficialXdotoolAliases]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testKeyPressParserSupportsOfficialXdotoolAliases]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testListedAppDescriptorRendersFrontmostBeforeRunning]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testListedAppDescriptorRendersFrontmostBeforeRunning]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testListedAppSortingPrefersFrontmostRunningApp]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testListedAppSortingPrefersFrontmostRunningApp]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testListTraversalPrefersVisibleChildrenAndReadsContents]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testListTraversalPrefersVisibleChildrenAndReadsContents]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMacOSAppAgentProxyDecisionDoesNotProxyLaunchServicesAppOpen]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMacOSAppAgentProxyDecisionDoesNotProxyLaunchServicesAppOpen]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMacOSAppAgentProxyDecisionHonorsDisableAndMissingBundle]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMacOSAppAgentProxyDecisionHonorsDisableAndMissingBundle]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMacOSAppAgentProxyDecisionKeepsNonAutomationCommandsLocal]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMacOSAppAgentProxyDecisionKeepsNonAutomationCommandsLocal]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMacOSAppAgentProxyDecisionRoutesAutomationCommandsThroughAppBundle]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMacOSAppAgentProxyDecisionRoutesAutomationCommandsThroughAppBundle]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMakeVisualCursorTargetReturnsNilWithoutWindowBounds]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMakeVisualCursorTargetReturnsNilWithoutWindowBounds]' passed (0.039 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMakeVisualCursorTargetUsesWindowRelativeElementCenter]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMakeVisualCursorTargetUsesWindowRelativeElementCenter]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMCPAcceptsTurnEndedNotificationWithoutResponse]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testMCPAcceptsTurnEndedNotificationWithoutResponse]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testNormalClickKeepsCenterThenLeadingFallback]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testNormalClickKeepsCenterThenLeadingFallback]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testNoWindowErrorMessageMatchesOfficialShape]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testNoWindowErrorMessageMatchesOfficialShape]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOfficialCursorMotionGuideProjectionFollowsPathBasisInsteadOfFixedScreenBias]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOfficialCursorMotionGuideProjectionFollowsPathBasisInsteadOfFixedScreenBias]' passed (0.001 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOfficialCursorMotionModelBuildsTwentyCandidates]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOfficialCursorMotionModelBuildsTwentyCandidates]' passed (0.001 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOfficialCursorMotionModelChoosesScaledBaseForReferenceSample]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOfficialCursorMotionModelChoosesScaledBaseForReferenceSample]' passed (0.001 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOfficialCursorMotionSpringCloseEnoughTimeMatchesRecoveredReference]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOfficialCursorMotionSpringCloseEnoughTimeMatchesRecoveredReference]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOfficialCursorMotionTravelDurationUsesRecoveredEndpointLockTiming]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOfficialCursorMotionTravelDurationUsesRecoveredEndpointLockTiming]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOnlySkyClickUsesReadOnlyActionSnapshotRefresh]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testOnlySkyClickUsesReadOnlyActionSnapshotRefresh]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPermissionClientsKeepDevelopmentBundleIdentitySeparateFromRelease]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPermissionClientsKeepDevelopmentBundleIdentitySeparateFromRelease]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPermissionClientsKeepStableBundleIdentityAheadOfTransientAppPath]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPermissionClientsKeepStableBundleIdentityAheadOfTransientAppPath]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPermissionDiagnosticsHasNoMissingPermissionsWhenAllGranted]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPermissionDiagnosticsHasNoMissingPermissionsWhenAllGranted]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPermissionDiagnosticsListsMissingPermissionsInCanonicalOrder]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPermissionDiagnosticsListsMissingPermissionsInCanonicalOrder]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPermissionGrantedKeepsRuntimePreflightAuthoritativeForCurrentProcess]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPermissionGrantedKeepsRuntimePreflightAuthoritativeForCurrentProcess]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPreferredInstalledAppBundleURLUsesFirstDiscoveredInstalledCopy]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPreferredInstalledAppBundleURLUsesFirstDiscoveredInstalledCopy]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPreferredPermissionAppBundleURLCanPreferRunningReleaseCopyOverStaleInstalledCopy]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPreferredPermissionAppBundleURLCanPreferRunningReleaseCopyOverStaleInstalledCopy]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPreferredPermissionAppBundleURLPrefersInstalledCopyOverTransientRunningCopy]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPreferredPermissionAppBundleURLPrefersInstalledCopyOverTransientRunningCopy]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPreferredPermissionAppBundleURLPrefersRunningDevelopmentCopy]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testPreferredPermissionAppBundleURLPrefersRunningDevelopmentCopy]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testReadCallSequenceAcceptsJSONArrays]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testReadCallSequenceAcceptsJSONArrays]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testReadToolArgumentsAcceptsJSONObject]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testReadToolArgumentsAcceptsJSONObject]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testReadToolArgumentsRejectsNonObject]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testReadToolArgumentsRejectsNonObject]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testResolvedVersionFallsBackWhenBundleHasNoVersionMetadata]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testResolvedVersionFallsBackWhenBundleHasNoVersionMetadata]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testRunCallSequenceSleepsBetweenSuccessfulOperations]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testRunCallSequenceSleepsBetweenSuccessfulOperations]' passed (1.854 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testRunCallSequenceStopsAfterFirstToolError]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testRunCallSequenceStopsAfterFirstToolError]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScreenshotPixelScaleStaysAtOneForUnscaledDisplays]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScreenshotPixelScaleStaysAtOneForUnscaledDisplays]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScreenshotPixelScaleUsesRetinaSizedImageAgainstWindowBounds]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScreenshotPixelScaleUsesRetinaSizedImageAgainstWindowBounds]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScreenshotPixelToWindowPointConvertsScreenshotPixelsBackToWindowPoints]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScreenshotPixelToWindowPointConvertsScreenshotPixelsBackToWindowPoints]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScreenshotPixelToWindowPointFallsBackToIdentityWithoutImageSize]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScreenshotPixelToWindowPointFallsBackToIdentityWithoutImageSize]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScreenshotPixelToWindowPointKeepsCoordinatesOnUnscaledDisplays]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScreenshotPixelToWindowPointKeepsCoordinatesOnUnscaledDisplays]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScrollRejectsInvalidDirectionWithOfficialMessage]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScrollRejectsInvalidDirectionWithOfficialMessage]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScrollRejectsNonPositivePagesWithOfficialMessage]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testScrollRejectsNonPositivePagesWithOfficialMessage]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSecondaryActionInvalidMessageMatchesOfficialShape]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSecondaryActionInvalidMessageMatchesOfficialShape]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSetValueAttributeGateMatchesOfficialSettableBoundary]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSetValueAttributeGateMatchesOfficialSettableBoundary]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyClickArgumentsRequireLeftButtonAndSingleOrDoubleClick]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyClickArgumentsRequireLeftButtonAndSingleOrDoubleClick]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyClickRecipeIncludesMovePrimerAndTargetPairs]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyClickRecipeIncludesMovePrimerAndTargetPairs]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyClickRecipeRejectsUnsupportedClickCounts]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyClickRecipeRejectsUnsupportedClickCounts]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyClickWindowValidationRequiresMatchingOnScreenOwner]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyClickWindowValidationRequiresMatchingOnScreenOwner]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyLightActivationRecordEncodesWindowAndFocusState]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyLightActivationRecordEncodesWindowAndFocusState]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyLightCapabilityReportsMissingSymbols]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyLightCapabilityReportsMissingSymbols]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyLightRuntimeSPIProbeCanStampEventWithoutPosting]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyLightRuntimeSPIProbeCanStampEventWithoutPosting]' passed (0.001 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyLightSyntheticFocusPlanOnlyAddressesTarget]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSkyLightSyntheticFocusPlanOnlyAddressesTarget]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSnapshotRenderedTextStartsDirectlyWithAppHeader]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSnapshotRenderedTextStartsDirectlyWithAppHeader]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSnapshotSelectedTextUsesOfficialSingleLineFormat]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSnapshotSelectedTextUsesOfficialSingleLineFormat]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSnapshotTextLimitDefaultsTo500AndSupportsMax]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSnapshotTextLimitDefaultsTo500AndSupportsMax]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSoftwareCursorGlyphArtworkNeutralHeadingMatchesCursorMotionBaseline]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSoftwareCursorGlyphArtworkNeutralHeadingMatchesCursorMotionBaseline]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSoftwareCursorGlyphConvertsScreenStateToAppKitDrawingState]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSoftwareCursorGlyphConvertsScreenStateToAppKitDrawingState]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSoftwareCursorGlyphLoadsCursorMotionReferenceImage]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSoftwareCursorGlyphLoadsCursorMotionReferenceImage]' passed (0.003 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSoftwareCursorGlyphMetricsMatchRuntimeProceduralCalibration]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSoftwareCursorGlyphMetricsMatchRuntimeProceduralCalibration]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSyntheticSideActionFilterKeepsLargeRowNamedDone]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSyntheticSideActionFilterKeepsLargeRowNamedDone]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSyntheticSideActionFilterKeepsMainRowPreviewContainingDone]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSyntheticSideActionFilterKeepsMainRowPreviewContainingDone]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSyntheticSideActionFilterRejectsTrailingDoneButton]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSyntheticSideActionFilterRejectsTrailingDoneButton]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSyntheticTextClickUsesLeadingSafePointOnly]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testSyntheticTextClickUsesLeadingSafePointOnly]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testTCCAuthorizationGrantedTreatsAnyGrantedCandidateAsGranted]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testTCCAuthorizationGrantedTreatsAnyGrantedCandidateAsGranted]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testToolDefinitionCount]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testToolDefinitionCount]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testToolDescriptionsMatchOfficialComputerUseSurface]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testToolDescriptionsMatchOfficialComputerUseSurface]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testTypeTextUnicodeChunksPreserveGraphemeClusters]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testTypeTextUnicodeChunksPreserveGraphemeClusters]' passed (0.001 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testVisualCursorAppKitPointConvertsScreenStateYDownCoordinates]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testVisualCursorAppKitPointConvertsScreenStateYDownCoordinates]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testVisualCursorEnvFlagDefaultsToEnabled]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testVisualCursorEnvFlagDefaultsToEnabled]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testVisualCursorIdlePoseKeepsTipAnchoredAndOnlyRotates]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testVisualCursorIdlePoseKeepsTipAnchoredAndOnlyRotates]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testVisualCursorKeepsPostInteractionIdleStateLongEnoughForFollowupTools]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testVisualCursorKeepsPostInteractionIdleStateLongEnoughForFollowupTools]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testVisualCursorRuntimeMapsAppKitUpwardMotionToCursorMotionScreenState]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testVisualCursorRuntimeMapsAppKitUpwardMotionToCursorMotionScreenState]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testWindowCaptureKeepsHintedWindowWhenFrontmostDoesNotOverlap]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testWindowCaptureKeepsHintedWindowWhenFrontmostDoesNotOverlap]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testWindowCapturePrefersFrontmostOverHintWhenModalOverlapsHintedWindow]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testWindowCapturePrefersFrontmostOverHintWhenModalOverlapsHintedWindow]' passed (0.000 seconds).
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testWindowRelativeFrameUsesSharedGlobalCoordinates]' started.
+Test Case '-[OpenComputerUseKitTests.OpenComputerUseKitTests testWindowRelativeFrameUsesSharedGlobalCoordinates]' passed (0.000 seconds).
+Test Suite 'OpenComputerUseKitTests' passed at 2026-09-10 18:49:57.773.
+	 Executed 152 tests, with 0 failures (0 unexpected) in 2.048 (2.057) seconds
+Test Suite 'SkyClickLiveTests' started at 2026-09-10 18:49:57.773.
+Test Case '-[OpenComputerUseKitTests.SkyClickLiveTests testCoveredChromeReceivesExactlyOneSkyClickWithoutForegroundSideEffects]' started.
+/private/tmp/ocu-drag-source/packages/OpenComputerUseKit/Tests/OpenComputerUseKitTests/SkyClickLiveTests.swift:18: -[OpenComputerUseKitTests.SkyClickLiveTests testCoveredChromeReceivesExactlyOneSkyClickWithoutForegroundSideEffects] : Test skipped - Set OPEN_COMPUTER_USE_RUN_SKY_CLICK_LIVE_TEST=1 to run the isolated Chrome live test
+Test Case '-[OpenComputerUseKitTests.SkyClickLiveTests testCoveredChromeReceivesExactlyOneSkyClickWithoutForegroundSideEffects]' skipped (0.002 seconds).
+Test Suite 'SkyClickLiveTests' passed at 2026-09-10 18:49:57.775.
+	 Executed 1 test, with 1 test skipped and 0 failures (0 unexpected) in 0.002 (0.002) seconds
+Test Suite 'StandaloneCursorSupportTests' started at 2026-09-10 18:49:57.775.
+Test Case '-[StandaloneCursorSupportTests.StandaloneCursorSupportTests testRecoveredCandidatePoolShape]' started.
+Test Case '-[StandaloneCursorSupportTests.StandaloneCursorSupportTests testRecoveredCandidatePoolShape]' passed (0.001 seconds).
+Test Case '-[StandaloneCursorSupportTests.StandaloneCursorSupportTests testRecoveredSpringTimelineLocksEndpointBeforeCloseEnough]' started.
+Test Case '-[StandaloneCursorSupportTests.StandaloneCursorSupportTests testRecoveredSpringTimelineLocksEndpointBeforeCloseEnough]' passed (0.002 seconds).
+Test Case '-[StandaloneCursorSupportTests.StandaloneCursorSupportTests testSelectionPrefersInBoundsCandidatesWhenAvailable]' started.
+Test Case '-[StandaloneCursorSupportTests.StandaloneCursorSupportTests testSelectionPrefersInBoundsCandidatesWhenAvailable]' passed (0.001 seconds).
+Test Suite 'StandaloneCursorSupportTests' passed at 2026-09-10 18:49:57.779.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.004 (0.004) seconds
+Test Suite 'OpenComputerUsePackageTests.xctest' passed at 2026-09-10 18:49:57.779.
+	 Executed 159 tests, with 1 test skipped and 0 failures (0 unexpected) in 2.056 (2.066) seconds
+Test Suite 'All tests' passed at 2026-09-10 18:49:57.779.
+	 Executed 159 tests, with 1 test skipped and 0 failures (0 unexpected) in 2.056 (2.069) seconds
+◇ Test run started.
+↳ Testing Library Version: 1902
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.
