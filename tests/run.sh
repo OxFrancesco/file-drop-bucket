@@ -2,7 +2,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 ./build.sh
-codesign --verify --deep --strict 'build/File Bucket.app'
+codesign --verify --deep --strict 'build/BuddyFiles.app'
 python3 tests/check-cli.py
 bun tests/check-receiver.js
 xcrun swiftc -parse-as-library PasteboardTest.swift -o build/pasteboard-test -framework AppKit

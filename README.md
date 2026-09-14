@@ -1,4 +1,4 @@
-# File Bucket
+# BuddyFiles
 
 A native macOS file shelf that lives at the edge of your screen. Requires macOS 13 or later. No dependencies, network listener, admin install, or source-file modifications.
 
@@ -7,9 +7,9 @@ Start dragging any file and keep the mouse held: after a short delay the bucket 
 ## Build and run
 
 ```sh
-cd file-drop-bucket
+cd BuddyFiles
 ./build.sh
-open "build/File Bucket.app"
+open "build/BuddyFiles.app"
 ```
 
 The app runs as a menu-bar utility (no Dock icon). On launch the panel opens once so you know it is running, then disappears entirely — nothing is left on the edge. Hover the docked screen edge (a band roughly the panel's height, centered vertically) to slide it out; move away to slide it back. The pin keeps it open; unpin it and step away to let it hide.
@@ -69,7 +69,9 @@ Not covered by automation: a real Cocoa drag-and-drop into the panel (synthetic 
 For manual diagnosis, quit the app, then run:
 
 ```sh
-BUCKET_DROP_TEST=1 './build/File Bucket.app/Contents/MacOS/FileBucket' --app
+BUCKET_DROP_TEST=1 './build/BuddyFiles.app/Contents/MacOS/BuddyFiles' --app
 ```
 
 This logs monitor decisions (`[bucket-monitor]` lines) and enables the same-window drop probe. A separate receiver window can also be launched with the binary's `--drop-test` argument.
+
+The app icon is generated artwork in `assets/BuddyFiles.png`. The build creates the macOS icon sizes. Existing storage, preferences, `bucket`, and the `file_bucket` agent tool retain their identifiers to preserve saved files and integrations.

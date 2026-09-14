@@ -19,7 +19,7 @@ final class StatusItemController: NSObject, NSMenuDelegate {
     override init() {
         super.init()
         if let button = item.button {
-            button.image = NSImage(systemSymbolName: "tray.and.arrow.down", accessibilityDescription: "File Bucket")
+            button.image = NSImage(systemSymbolName: "tray.and.arrow.down", accessibilityDescription: "BuddyFiles")
             button.imagePosition = .imageOnly
         }
         menu.delegate = self
@@ -31,7 +31,7 @@ final class StatusItemController: NSObject, NSMenuDelegate {
     private func rebuild() {
         let s = settingsProvider()
         menu.removeAllItems()
-        menu.addItem(make("Show File Bucket", #selector(showTapped), key: ""))
+        menu.addItem(make("Show BuddyFiles", #selector(showTapped), key: ""))
         menu.addItem(make("Add Files…", #selector(addTapped)))
         menu.addItem(.separator())
         menu.addItem(section("Position"))
@@ -55,7 +55,7 @@ final class StatusItemController: NSObject, NSMenuDelegate {
         menu.addItem(.separator())
         menu.addItem(make("Clear Bucket", #selector(clearTapped)))
         menu.addItem(.separator())
-        menu.addItem(make("Quit File Bucket", #selector(quitTapped), key: "q"))
+        menu.addItem(make("Quit BuddyFiles", #selector(quitTapped), key: "q"))
     }
 
     private func make(_ title: String, _ action: Selector, checked: Bool = false, key: String = "") -> NSMenuItem {

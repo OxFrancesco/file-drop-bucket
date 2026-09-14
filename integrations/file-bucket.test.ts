@@ -9,7 +9,7 @@ test("real CLI stages literal paths, validates before mutation, and clears refer
   const oldHome = process.env.BUCKET_HOME;
   const oldCli = process.env.FILE_BUCKET_CLI;
   process.env.BUCKET_HOME = join(root, "store");
-  process.env.FILE_BUCKET_CLI = resolve(import.meta.dir, "../build/File Bucket.app/Contents/MacOS/FileBucket");
+  process.env.FILE_BUCKET_CLI = resolve(import.meta.dir, "../build/BuddyFiles.app/Contents/MacOS/BuddyFiles");
   const name = "-quoted ' space $(touch INJECTION) ; ü.txt";
   const fixture = join(root, name);
   await writeFile(fixture, "harmless integration fixture\n");

@@ -1,4 +1,4 @@
-# Pi File Bucket integration
+# Pi BuddyFiles integration
 
 `file-bucket.ts` registers the `file_bucket` agent tool. It runs alongside the existing `OpenComputerUse/index.ts` extension without changing that bridge or its shared MCP session.
 
@@ -34,7 +34,7 @@ The CLI receives an argv array through `execFile`, never shell-interpolated text
 
 ## OCU handoff
 
-After `add`, call `show` if the panel is not open. Call `ocu_list_apps`, then `ocu_get_app_state` for File Bucket and the destination. Inspect fresh screenshots before choosing the row and drop coordinates. Recapture after window movement or layout changes. Only drag to a destination authorized by the user and verify receipt afterward.
+After `add`, call `show` if the panel is not open. Call `ocu_list_apps`, then `ocu_get_app_state` for BuddyFiles and the destination. Inspect fresh screenshots before choosing the row and drop coordinates. Recapture after window movement or layout changes. Only drag to a destination authorized by the user and verify receipt afterward.
 
 Adding or showing files is not permission to upload them. This integration does not call OCU, open a browser, or automate uploads. Native drag behavior remains owned and tested by the app/OCU workflow.
 

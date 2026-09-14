@@ -60,7 +60,7 @@ export async function runFileBucket(input: FileBucketInput, cwd: string, signal?
   }
   text += "\nOnly bucket references are managed. Original files are not deleted. Nothing was uploaded.";
   if (input.action === "add" || input.action === "show") {
-    text += "\nBefore dragging: use ocu_list_apps, then ocu_get_app_state for File Bucket and the destination. Inspect fresh screenshots and recapture after layout changes. Add does not open the panel; use show if needed. Drag only to a user-authorized destination, then verify receipt.";
+    text += "\nBefore dragging: use ocu_list_apps, then ocu_get_app_state for BuddyFiles and the destination. Inspect fresh screenshots and recapture after layout changes. Add does not open the panel; use show if needed. Drag only to a user-authorized destination, then verify receipt.";
   }
   return { content: [{ type: "text" as const, text }], details: { action: input.action, cli, fullOutputPath } };
 }
@@ -68,12 +68,12 @@ export async function runFileBucket(input: FileBucketInput, cwd: string, signal?
 export default function fileBucketExtension(pi: ExtensionAPI) {
   pi.registerTool({
     name: "file_bucket",
-    label: "File Bucket",
-    description: "Manage local File Bucket references: status lists paths, add accepts 1-100 regular files, show opens the panel, clear removes all references WITHOUT deleting files. No uploads or automatic drags. Output capped at 2000 lines/50 KiB; full truncated output saved privately. FILE_BUCKET_CLI configures the executable.",
-    promptSnippet: "Stage local files in File Bucket for a separately authorized native drag.",
+    label: "BuddyFiles",
+    description: "Manage local BuddyFiles references: status lists paths, add accepts 1-100 regular files, show opens the panel, clear removes all references WITHOUT deleting files. No uploads or automatic drags. Output capped at 2000 lines/50 KiB; full truncated output saved privately. FILE_BUCKET_CLI configures the executable.",
+    promptSnippet: "Stage local files in BuddyFiles for a separately authorized native drag.",
     promptGuidelines: [
       "Use file_bucket to add/show/status/clear local drag references; clear never deletes source files.",
-      "After file_bucket add/show, use ocu_list_apps and inspect fresh ocu_get_app_state screenshots for File Bucket and the destination before any drag. Never infer coordinates or automatically upload staged files.",
+      "After file_bucket add/show, use ocu_list_apps and inspect fresh ocu_get_app_state screenshots for BuddyFiles and the destination before any drag. Never infer coordinates or automatically upload staged files.",
     ],
     parameters,
     async execute(_id, input, signal, _update, ctx) {

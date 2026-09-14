@@ -127,7 +127,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSTableViewDataSource,
             }
         }
         let menu = NSMenu(); let root = NSMenuItem(); menu.addItem(root)
-        let submenu = NSMenu(); submenu.addItem(withTitle: "Quit File Bucket", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
+        let submenu = NSMenu(); submenu.addItem(withTitle: "Quit BuddyFiles", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         root.submenu = submenu; NSApp.mainMenu = menu
         if args.contains("--drop-test") {
             let window = NSWindow(contentRect: NSRect(x: 100, y: 300, width: 450, height: 220), styleMask: [.titled, .closable], backing: .buffered, defer: false)

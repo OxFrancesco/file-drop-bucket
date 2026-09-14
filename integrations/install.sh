@@ -2,7 +2,7 @@
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 EXTENSIONS="${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}/extensions"
-CLI="$ROOT/build/File Bucket.app/Contents/MacOS/FileBucket"
+CLI="$ROOT/build/BuddyFiles.app/Contents/MacOS/BuddyFiles"
 TARGET="$HOME/.local/bin/file-bucket"
 [[ -x "$CLI" ]] || { printf 'Build the app with ./build.sh first.\n' >&2; exit 1; }
 mkdir -p "$EXTENSIONS" "$(dirname "$TARGET")"

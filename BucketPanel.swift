@@ -174,7 +174,7 @@ final class BucketView: NSVisualEffectView {
         icon.contentTintColor = .secondaryLabelColor
         icon.frame = NSRect(x: 14, y: h - 31, width: 16, height: 16)
 
-        let title = NSTextField(labelWithString: "File Bucket")
+        let title = NSTextField(labelWithString: "BuddyFiles")
         title.font = .systemFont(ofSize: 13, weight: .semibold)
         title.frame = NSRect(x: 38, y: h - 33, width: 120, height: 20)
 
